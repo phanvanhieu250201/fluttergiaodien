@@ -122,7 +122,7 @@ class _MyCartState extends State<MyCart> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 100),
+                  padding: const EdgeInsets.only(left: 00),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -222,7 +222,7 @@ class _MyCartState extends State<MyCart> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 100),
+                  padding: const EdgeInsets.only(left: 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -315,26 +315,23 @@ class _MyCartState extends State<MyCart> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(
-                  width: 400.0,
+                  width: 270.0,
                   height: 35,
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Enter promo codes',
                     ),
-                    style: TextStyle(fontSize: 15.0, height: 2.5, color: Colors.black),
+                    style: TextStyle(fontSize: 15.0, height: 3, color: Colors.black),
                   ),
                 ),
 
-                GestureDetector(
-                  onTap: () {},
+                Container(                    
                   child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color.fromARGB(255, 255, 81, 0),
-                      ),
+                    padding: const EdgeInsets.only(left:10.0),
+                    child: ElevatedButton(
+                      style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
+                      onPressed: () {},
                       child: const Center(
                         child: Padding(
                           padding: EdgeInsets.all(10.0),
@@ -371,7 +368,7 @@ class _MyCartState extends State<MyCart> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     
-                    const SizedBox(height: 20,),
+                    const SizedBox(height: 200,),
 
           Container(
             margin: EdgeInsets.all(10),
@@ -410,13 +407,10 @@ class _MyCartState extends State<MyCart> {
               ],
             ),
           ),           
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color.fromARGB(255, 255, 81, 0),
-              ),
+          Container(
+            child: ElevatedButton(
+              style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
+              onPressed: () {  },
               child: const Center(
                 child: Padding(
                   padding: EdgeInsets.all(10.0),

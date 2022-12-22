@@ -218,14 +218,11 @@ class _LogoutState extends State<Logout> {
                             ),
                         ),
                       ),                                                       
-                    const SizedBox(height: 100,),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 255, 81, 0),
-                        ),
+                    const SizedBox(height: 250,),
+                    Container(
+                      child: ElevatedButton(
+                        style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
+                        onPressed: () {  },
                         child: const Center(
                           child: Padding(
                             padding: EdgeInsets.all(10.0),
@@ -233,7 +230,7 @@ class _LogoutState extends State<Logout> {
                               'Logout',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 30,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

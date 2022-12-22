@@ -160,13 +160,10 @@ class _SettingViewState extends State<SettingView> {
                       ),
                       ),                     
                     const SizedBox(height: 20,),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 255, 81, 0),
-                        ),
+                    Container(
+                      child: ElevatedButton(
+                        style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
+                        onPressed: () {  },
                         child: const Center(
                           child: Padding(
                             padding: EdgeInsets.all(10.0),
@@ -174,7 +171,7 @@ class _SettingViewState extends State<SettingView> {
                               'Save Change',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 30,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
