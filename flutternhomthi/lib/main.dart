@@ -11,10 +11,9 @@ void main() {
   runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Logout(),
+        home: ChangePassword(),
       ),
   
-    //LIST VIEW & GRID VIEW
   );
 }
 

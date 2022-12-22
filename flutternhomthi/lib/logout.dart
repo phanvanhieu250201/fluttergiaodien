@@ -18,27 +18,9 @@ class _LogoutState extends State<Logout> {
         backgroundColor: Colors.white,
         body: Column(children: [     
           const SizedBox(height: 30,),     
-          Container(
-            width: double.infinity,
-            child: Image.asset('images/avtar.png', width: 200, height: 200,),
-          ),
+          blockAvatar(),
           const SizedBox(height: 30,),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text("User Name",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        
-                      ),
-                      
-                    ),             
-              ],
-            ),
-          ),
+          blockUserName(),
           Expanded(child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -54,190 +36,13 @@ class _LogoutState extends State<Logout> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                            
-                          ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text("Profile",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.black,
-                                          
-                                        ),
-                                        
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text("",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                        
-                                      ),
-                                      
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:[
-                                    Icon(Icons.arrow_forward_ios_rounded, color: Colors.black,),
-
-                                  ],
-                                ),
-                                
-                              ],
-                            ),
-                        ),
-                      ),
-                      const SizedBox(height: 30,),                     
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                            
-                          ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text("Change Password",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.black,
-                                          
-                                        ),
-                                        
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text("",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                        
-                                      ),
-                                      
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:[
-                                    Icon(Icons.arrow_forward_ios_rounded, color: Colors.black,),
-
-                                  ],
-                                ),
-                                
-                              ],
-                            ),
-                        ),
-                      ), 
-                      const SizedBox(height: 30,),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                            
-                          ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text("Setting",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.black,
-                                          
-                                        ),
-                                        
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text("",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                        
-                                      ),
-                                      
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:[
-                                    Icon(Icons.arrow_forward_ios_rounded, color: Colors.black,),
-
-                                  ],
-                                ),
-                                
-                              ],
-                            ),
-                        ),
-                      ),                                                       
+                    blockProfile(),
+                    const SizedBox(height: 30,),                     
+                    blockChangePassword(),
+                    const SizedBox(height: 30,),
+                    blockSetting(),
                     const SizedBox(height: 250,),
-                    Container(
-                      child: ElevatedButton(
-                        style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
-                        onPressed: () {  },
-                        child: const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text(
-                              'Logout',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    blockButtonLogout(),
 
 
                   ],
@@ -245,6 +50,195 @@ class _LogoutState extends State<Logout> {
                   ) ),),
             ))
         ]),
+      ),
+    );
+  }
+  blockAvatar(){
+    return Container(
+      width: double.infinity,
+      child: Image.asset('images/avtar.png', width: 200, height: 200,),
+    );
+  }
+  blockUserName(){
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("User Name",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  
+                ),
+                
+              ),             
+        ],
+      ),
+    );
+  }
+  blockProfile(){
+    return  Container(
+      child: ElevatedButton(
+          style: TextButton.styleFrom(backgroundColor: Colors.white),
+          onPressed: () {  },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Profile",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        
+                      ),
+                      
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      
+                    ),
+                    
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:[
+                  Icon(Icons.arrow_forward_ios_rounded, color: Colors.black,),
+
+                ],
+              ),
+              
+            ],
+          ),
+      ),
+    );
+  }
+  blockChangePassword(){
+    return Container(
+      child: ElevatedButton(
+          style: TextButton.styleFrom(backgroundColor: Colors.white),
+          onPressed: () {  },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Change Password",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        
+                      ),
+                      
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      
+                    ),
+                    
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:[
+                  Icon(Icons.arrow_forward_ios_rounded, color: Colors.black,),
+
+                ],
+              ),
+              
+            ],
+          ),
+      ),
+    );
+  }
+  blockSetting(){
+    return Container(
+      child: ElevatedButton(
+        style: TextButton.styleFrom(backgroundColor: Colors.white),
+        onPressed: () {  },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Setting",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        
+                      ),
+                      
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      
+                    ),
+                    
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:[
+                  Icon(Icons.arrow_forward_ios_rounded, color: Colors.black,),
+
+                ],
+              ),
+              
+            ],
+          ),
+      ),
+    );          
+  }
+  blockButtonLogout(){
+    return Container(
+      child: ElevatedButton(
+        style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
+        onPressed: () {  },
+        child: const Center(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Logout',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
