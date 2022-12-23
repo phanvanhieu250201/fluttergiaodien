@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutternhomthi/colortohex.dart';
 
 class SettingView extends StatefulWidget {
   const SettingView({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _SettingViewState extends State<SettingView> {
   Widget build(BuildContext context) {
         return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: hexToColor("#F3F3F3"),
         body: Column(children: [
           blockTitle(),
           blockImage(),
@@ -23,7 +24,7 @@ class _SettingViewState extends State<SettingView> {
           Expanded(child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: hexToColor("#F3F3F3"),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -110,14 +111,22 @@ class _SettingViewState extends State<SettingView> {
   );
   }
   blockUserNameText(){
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'David Backer',
+    return 
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockIDUser(){
@@ -132,14 +141,22 @@ class _SettingViewState extends State<SettingView> {
     );
   }
   blockIDUserText(){
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'david21',
+    return 
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockAddress(){
@@ -154,14 +171,22 @@ class _SettingViewState extends State<SettingView> {
     );
   }
   blockAddressText(){
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: '32 Nguyen Trai, TP.HCM'
+    return
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockPhone(){
@@ -176,14 +201,22 @@ class _SettingViewState extends State<SettingView> {
     );
   }
   blockPhoneText(){
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: '0375899781'
+    return 
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockEmail(){
@@ -198,14 +231,22 @@ class _SettingViewState extends State<SettingView> {
     );
   }
   blockEmailText(){
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'davidbacker@gmail.com'
+    return 
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockButtonSave(){

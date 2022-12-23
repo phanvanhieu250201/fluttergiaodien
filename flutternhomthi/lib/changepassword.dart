@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutternhomthi/colortohex.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({Key? key}) : super(key: key);
@@ -15,15 +16,15 @@ class _ChangePasswordState extends State<ChangePassword> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor:hexToColor("#F3F3F3"),
         body: Column(children: [
           blockTitle(),
           blockImage(),
 
           Expanded(child: Container(
+            
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -100,14 +101,22 @@ class _ChangePasswordState extends State<ChangePassword> {
     );
   }
   blockOlderPassword(){
-    return  const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: '******'
+    return  
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockNewPass(){
@@ -122,15 +131,24 @@ class _ChangePasswordState extends State<ChangePassword> {
   );
   }
   blockNewPasWord(){
-    return  const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: '******'
+    return  
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
+      
   }
   blockRetypePass(){
     return Container(
@@ -144,14 +162,22 @@ class _ChangePasswordState extends State<ChangePassword> {
   );
   }
   blockPrtypePassword(){
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: '******'
+    return 
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 340,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(10))
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: ''
+            ),
+          ),
         ),
-      ),
       );
   }
   blockButtonSaveChange(){

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'colortohex.dart';
+
 class Logout extends StatefulWidget {
   const Logout({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class _LogoutState extends State<Logout> {
   Widget build(BuildContext context) {
             return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: hexToColor("#F3F3F3"),
         body: Column(children: [     
           const SizedBox(height: 30,),     
           blockAvatar(),
@@ -24,7 +26,7 @@ class _LogoutState extends State<Logout> {
           Expanded(child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: hexToColor("#F3F3F3"),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),

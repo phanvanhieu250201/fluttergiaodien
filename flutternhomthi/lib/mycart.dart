@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutternhomthi/colortohex.dart';
 
 class MyCart extends StatefulWidget {
   const MyCart({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _MyCartState extends State<MyCart> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: hexToColor("#F3F3F3"),
         body: Column(children: [
           blockTi(),
           blockItems(),
@@ -23,6 +24,7 @@ class _MyCartState extends State<MyCart> {
           blockProduct(),
           blockPromoCodes(),
           blockCodes(),
+          const SizedBox(height: 200,),
           blockTotalButton()
         ]),
       ),
@@ -147,7 +149,13 @@ class _MyCartState extends State<MyCart> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom:5.0),
                     child: ElevatedButton(
-                      style: TextButton.styleFrom(backgroundColor: Colors.white),
+                      style: 
+                              TextButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                elevation: 0.0, 
+                                shadowColor: Colors.white,
+                              ),
+  
                       onPressed: () {},            
                           child: Image.asset('images/delete.png', width: 20, height: 20,
                           ),                                            
@@ -168,10 +176,10 @@ class _MyCartState extends State<MyCart> {
                         child: Padding(
                           padding: const EdgeInsets.only(left:00.0),
                           child: ElevatedButton(
-                            style: TextButton.styleFrom(backgroundColor:  Color.fromARGB(255, 255, 81, 0), 
+                            style: TextButton.styleFrom(backgroundColor:  Color.fromARGB(255, 255, 81, 0), elevation: 0.0, shadowColor: Colors.white,
                               ),
                             onPressed: () {},            
-                                child: Text("-", style: TextStyle(color: Colors.white),
+                                child: Text("-", style: TextStyle(color: Colors.white, ),
                                 ),                                            
                           ),
                         ),
@@ -192,7 +200,7 @@ class _MyCartState extends State<MyCart> {
                             padding: const EdgeInsets.only(right:0.0),
                             child: ElevatedButton(
                               
-                              style: TextButton.styleFrom(backgroundColor:  Color.fromARGB(255, 255, 81, 0)),
+                              style: TextButton.styleFrom(backgroundColor:  Color.fromARGB(255, 255, 81, 0), elevation: 0.0, shadowColor: Colors.white, ),
                               onPressed: () {},            
                                   child: Center(
                                     child: Text("+", style: TextStyle(color: Colors.white),
@@ -252,7 +260,11 @@ class _MyCartState extends State<MyCart> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(10))
+            ),
             width: 270.0,
             height: 35,
             child: TextField(
@@ -260,7 +272,7 @@ class _MyCartState extends State<MyCart> {
                 border: OutlineInputBorder(),
                 hintText: 'Enter promo codes',
               ),
-              style: TextStyle(fontSize: 15.0, height: 2.5, color: Colors.black),
+              style: TextStyle(fontSize: 15.0, height: 2.5, color: Colors.black,),
             ),
           ),
 
@@ -294,76 +306,85 @@ class _MyCartState extends State<MyCart> {
     return Expanded(child: Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         )
       ),
-
+     
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(00.0),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 200,),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Total",
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.black,
-                          
+          child: Container(
+            height: 200,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10))
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Total",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.black,
+                            
+                          ),
+                      ),
+                      Container(
+                        width:120,
+                        child:
+                        GradientText(
+                          '200.790.000',
+                          style: Theme.of(context).textTheme.headline6,
+                          gradient: LinearGradient(colors: [
+                            Colors.deepOrange.shade500,
+                            Colors.yellow.shade500,
+                          ]),
                         ),
-                    ),
-
-                    Container(
-                      width:120,
-                      child:
-                      GradientText(
-                        '200.790.000',
-                        style: Theme.of(context).textTheme.headline6,
-                        gradient: LinearGradient(colors: [
-                          Colors.deepOrange.shade500,
-                          Colors.yellow.shade500,
-                        ]),
+                      ),
+                      
+                    ],
+                  ),
+                ),           
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+              child: ElevatedButton(
+                style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
+                onPressed: () {  },
+                child: const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'Proceed Checkout',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        
                       ),
                     ),
-                    
-                  ],
-                ),
-              ),           
-        Container(
-          child: ElevatedButton(
-            style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 255, 81, 0)),
-            onPressed: () {  },
-            child: const Center(
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Proceed Checkout',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    
                   ),
                 ),
               ),
-            ),
           ),
         ),
 
 
-            ],
+              ],
 
-            ) ),),
+              ),
+          ) ),),
       ));           
   }
+
 }
 class GradientText extends StatelessWidget {
   const GradientText(
@@ -386,6 +407,7 @@ class GradientText extends StatelessWidget {
       child: Text(text, style: style),
     );
   }
+
 
 
 }
