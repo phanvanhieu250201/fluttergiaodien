@@ -10,7 +10,17 @@ class ChangePassword extends StatefulWidget {
   @override
   State<ChangePassword> createState() => _ChangePasswordState();
 }
-
+const String kOlderPassNullError = "Please Enter your Older Password";
+const String kMatchOlderPassEror = "Passwords don't match";
+const String kShortOlderPassError = "Older Password is too short";
+const String kOlderPassInvalidError = "Please Enter Valid Older Password";
+const String kNewPassNullError = "Please Enter your New Password";
+const String kShortNewPassError = "New Password is too short";
+const String kNewPassInvalidError = "Please Enter Valid New Password";
+const String kRetypeNewPassNullError = "Please Enter your Retype New Password";
+const String kRetypeShortNewPassError = "Retype New Password is too short";
+const String kRetypeNewPassInvalidError = "Please Enter Valid Retype New Password";
+final RegExp passwordValidatorRegex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
@@ -110,7 +120,23 @@ class _ChangePasswordState extends State<ChangePassword> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kOlderPassNullError;
+              }
+              else{
+                if(value.length < 5){
+                  return kShortOlderPassError;
+                }
+                else{
+                  if(passwordValidatorRegex.hasMatch(value) != true){
+                    return kOlderPassInvalidError;
+                  }
+                }
+              }
+              return null;
+            }, 
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -140,7 +166,23 @@ class _ChangePasswordState extends State<ChangePassword> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kNewPassNullError;
+              }
+              else{
+                if(value.length < 5){
+                  return kShortNewPassError;
+                }
+                else{
+                  if(passwordValidatorRegex.hasMatch(value) != true){
+                    return kNewPassInvalidError;
+                  }
+                }
+              }
+              return null;
+            },             
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -171,7 +213,23 @@ class _ChangePasswordState extends State<ChangePassword> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kRetypeNewPassNullError;
+              }
+              else{
+                if(value.length < 5){
+                  return kRetypeShortNewPassError;
+                }
+                else{
+                  if(passwordValidatorRegex.hasMatch(value) != true){
+                    return kRetypeNewPassInvalidError;
+                  }
+                }
+              }
+              return null;
+            },            
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
