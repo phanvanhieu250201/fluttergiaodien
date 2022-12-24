@@ -10,14 +10,27 @@ class SettingView extends StatefulWidget {
   @override
   State<SettingView> createState() => _SettingViewState();
 }
+const String kEmailNullError = "Please Enter your Email";
+const String kEmailHon5KyTuError = "Email phải lớn hơn 5 ký tự";
+final RegExp kemailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+const String kInvalidEmailError = "Please Enter Valid Email";
+const String kUserNameNullError = "Please Enter your UserName";
+const String kIDUserNullError = "Please Enter your IDUser";
+const String kAddressNullError = "Please Enter your Address";
+const String kPhoneNullError = "Please Enter your Phone Number";
+// var email = "tony123_90874.coder@yahoo.co.in";
+// bool emailValid = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$').hasMatch(email);
+// var kemailtest = kemailValid.hasMatch(email);
 
 class _SettingViewState extends State<SettingView> {
   @override
   Widget build(BuildContext context) {
+
         return SafeArea(
       child: Scaffold(
         backgroundColor: hexToColor("#F3F3F3"),
         body: Column(children: [
+          
           blockTitle(),
           blockImage(),
 
@@ -49,6 +62,7 @@ class _SettingViewState extends State<SettingView> {
                     blockEmailText(),
                     const SizedBox(height: 20,),
                     blockButtonSave(),
+                    
 
 
                   ],
@@ -70,7 +84,7 @@ class _SettingViewState extends State<SettingView> {
 
               Padding(
                 padding: const EdgeInsets.only(right: 30.0),
-                child: Text("Setting",
+                child: Text('Setting',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black,
@@ -120,7 +134,13 @@ class _SettingViewState extends State<SettingView> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kUserNameNullError;
+              }
+              return null;
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -150,7 +170,13 @@ class _SettingViewState extends State<SettingView> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kIDUserNullError;
+              }
+              return null;
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -180,7 +206,13 @@ class _SettingViewState extends State<SettingView> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kAddressNullError;
+              }
+              return null;
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -210,7 +242,13 @@ class _SettingViewState extends State<SettingView> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value==null || value.isEmpty){
+                return kPhoneNullError;
+              }
+              return null;
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -240,7 +278,22 @@ class _SettingViewState extends State<SettingView> {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10))
           ),
-          child: TextField(
+          child: TextFormField(
+              validator: (value){
+                if(value==null || value.isEmpty){
+                  return kEmailNullError;
+                }
+                else{
+                  if(value.length < 5)
+                    return kEmailHon5KyTuError;
+                  else{
+                    if(kemailValid.hasMatch(value) != true){
+                      return kInvalidEmailError;
+                    }
+                  }
+                }
+                return null;
+              },            
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: ''
@@ -270,4 +323,7 @@ class _SettingViewState extends State<SettingView> {
       ),
     );
   }
+
+
+  
 }
