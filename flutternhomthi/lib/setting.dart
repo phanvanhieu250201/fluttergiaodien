@@ -88,18 +88,23 @@ class _SettingViewState extends State<SettingView> {
                 ),
               Padding(
                 padding: const EdgeInsets.only( right: 25, top: 10,bottom: 10,),
-                child: TextFormField(
-                  validator: (value){
-                    if(value==null || value.isEmpty){
-                      return kIDUserNullError;
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    filled:true,
-                    fillColor: Colors.white,                   
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10,),),
-                    hintText: ''
+                child: Container(
+
+                  height: 50,
+                  width: 600,
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Color.fromARGB(255, 123, 122, 122)),
+                  ),
+                  child: Center(
+                    child: const Text(
+                      'ID236',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      )
+                    ),
                   ),
                 ),
               ),
